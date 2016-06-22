@@ -10,14 +10,11 @@ Meteor.startup(() => {
 
 ClusterAuth.authenticate = function(token, scope, options) {
   options = options || { from: 'server' };
-  console.log(options, options.from);
   if(options.from === 'server') return ClusterAuth.authenticateByClusterToken(token, scope);
   if(options.from === 'client') return ClusterAuth.authenticateByLoginToken(token, scope);
-  console.log('pass');
 };
 
 ClusterAuth.authenticateByClusterToken = function(token, scope) {
-  console.log('auth token');
   const selector = { token, date: { $gte: moment().subtract(10, 'minutes').toDate() } };
   const requestToken = ClusterAuth.RequestTokens.findOne(selector, { fields: { userId: 1 } });
   if(!requestToken) return;
@@ -28,7 +25,6 @@ ClusterAuth.authenticateByClusterToken = function(token, scope) {
 };
 
 ClusterAuth.authenticateByLoginToken = function(loginToken, scope) {
-  console.log('auth login');
   if(!loginToken) return null;
   const hashedToken = loginToken && Accounts._hashLoginToken(loginToken);
   const selector = { 'services.resume.loginTokens.hashedToken': hashedToken };
