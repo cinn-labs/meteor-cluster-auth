@@ -1,6 +1,6 @@
 Package.describe({
   name: 'cinn:cluster-auth',
-  version: '0.1.0',
+  version: '0.1.1',
   summary: 'Authentication helper for cluster pacakge',
   git: 'https://github.com/cinn-labs/meteor-cluster-auth',
   documentation: 'README.md'
