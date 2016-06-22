@@ -2,9 +2,7 @@ import { Meteor } from 'meteor/meteor';
 
 ClusterAuth = {
   generateToken() {
-    const token = Meteor._localStorage.getItem('Meteor.loginToken');
-    Meteor.call('generateClusterRequestToken', token);
-    return token;
+    return Meteor._localStorage.getItem('Meteor.loginToken');
   }
 };
 
