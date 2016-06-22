@@ -16,6 +16,7 @@ Package.onUse(function(api) {
   api.use('mongo');
   api.use('random');
   api.use('accounts-base');
+  api.use('accounts-password');
 
   api.addFiles('cluster-auth.common.js', both);
   api.addFiles('cluster-auth.server.js', 'server');
