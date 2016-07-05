@@ -1,6 +1,6 @@
 Package.describe({
   name: 'cinn:cluster-auth',
-  version: '0.1.1',
+  version: '0.1.2',
   summary: 'Authentication helper for cluster pacakge',
   git: 'https://github.com/cinn-labs/meteor-cluster-auth',
   documentation: 'README.md'
@@ -8,7 +8,7 @@ Package.describe({
 
 Package.onUse(function(api) {
   const both = ['client', 'server'];
-  api.versionsFrom('1.3.2.4');
+  api.versionsFrom('1.3.4');
   api.export('ClusterAuth');
 
   api.use('ecmascript');
