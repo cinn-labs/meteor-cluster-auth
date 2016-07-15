@@ -2,7 +2,7 @@ import moment from 'moment';
 import { Meteor } from 'meteor/meteor';
 
 Meteor.startup(() => {
-  let discoveryUrl = process.env['CLUSTER_DISCOVERY_URL'] || Meteor.settings.private.CLUSTER_DISCOVERY_URL;
+  let discoveryUrl = process.env['CLUSTER_DISCOVERY_URL'] || process.env['MONGO_URL'];
   const database = new MongoInternals.RemoteCollectionDriver(discoveryUrl);
   ClusterAuth.RequestTokens = new Mongo.Collection("clusterRequestTokens", { _driver: database });
   ClusterAuth.RequestTokens._ensureIndex({ token: 1 });
